@@ -4,33 +4,33 @@
       <form #cForm="ngForm" (ngSubmit)="onCreate(customer)">
         <div class="form-group">
           <label>Name</label>
-          <input required [(ngModel)]="customer.name" name="name" type="text" class="form-control">
+          <input required [(ngModel)]="customer.name" pattern=".{8,40}" name="name" type="text" class="form-control">
           <div [hidden]="cForm.controls.name?.valid || cForm.controls.name?.pristine " class="error-message">
             Name is required.
           </div>
         </div>
-        <!-- <div class="form-group">
+         <div class="form-group">
           <label>Email</label>
-          <input required [(ngModel)]="customer.name" name="name" type="text" class="form-control">
-          <div [hidden]="cForm.controls.name?.valid || cForm.controls.name?.pristine " class="error-message">
-            Email is required.
+          <input required [(ngModel)]="customer.email" pattern="^.{3,}@{1}.{3,}\.{1}[a-z]{2,}$" name="email" type="text" class="form-control">
+          <div [hidden]="cForm.controls.email?.valid || cForm.controls.email?.pristine " class="error-message">
+            Email is required. Must be at least 10 characters, @ and. must also contain a character.
           </div>
         </div>
         <div class="form-group">
           <label>Address</label>
-          <input required [(ngModel)]="customer.name" name="name" type="text" class="form-control">
-          <div [hidden]="cForm.controls.name?.valid || cForm.controls.name?.pristine " class="error-message">
-            Address is required.
+          <input required [(ngModel)]="customer.address" pattern=".{8,40}" name="address" type="text" class="form-control">
+          <div [hidden]="cForm.controls.address?.valid || cForm.controls.address?.pristine " class="error-message">
+            Address is required. Minimum 8 characters, maximum 40 characters.
           </div>
         </div>
         <div class="form-group">
           <label>Rating</label>
-          <input required [(ngModel)]="customer.name" name="name" type="number" class="form-control">
-          <div [hidden]="cForm.controls.name?.valid || cForm.controls.name?.pristine " class="error-message">
-            Rating is required.
+          <input required [(ngModel)]="customer.rating" pattern="[1-5]{1,1}" name="rating" type="number" class="form-control">
+          <div [hidden]="cForm.controls.rating?.valid || cForm.controls.rating?.pristine " class="error-message">
+            Rating is required. Maximum 1 character, 1 - 5.
           </div>
-        </div> -->
-        <button class="btn btn-primary btn-block">
+        </div>
+        <button [disabled]="cForm.invalid"  class="btn btn-primary btn-block">
           <i class="fa fa-save"></i>
         </button>
       </form>
