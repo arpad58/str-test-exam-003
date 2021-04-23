@@ -12,7 +12,7 @@ const customerList = [{ "id": 1, "name": "Janeva Ciccone", "email": "jciccone0@i
 
 const customerFilter = (list, name, rating) => {
     return list.filter( c => c.name.includes(name) && c.rating >= rating )
-        .map( a => c.name );
+        .map( c => c.name );
 };
 
 if (typeof module !== 'undefined') {
