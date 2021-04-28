@@ -10,9 +10,16 @@ const customerList = [{ "id": 1, "name": "Janeva Ciccone", "email": "jciccone0@i
 { "id": 10, "name": "Lin Surmon", "email": "lsurmon9@myspace.com", "rating": 3, "address": "4949 Memorial Way" }
 ];
 
+//const customerFilter = (list, name, rating) => {
+//    return list.filter( c => c.name.includes(name) && c.rating >= rating )
+//        .map( c => c.name );
+//};
+
 const customerFilter = (list, name, rating) => {
-    return list.filter( c => c.name.includes(name) && c.rating >= rating )
-        .map( c => c.name );
+    return list
+    .filter( customer => customer.name.toLowerCase().includes(name.toLowerCase()) 
+    && customer.rating >= rating)
+    .map(customer => customer.name)
 };
 
 if (typeof module !== 'undefined') {
